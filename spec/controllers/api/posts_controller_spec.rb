@@ -17,12 +17,14 @@ RSpec.describe Api::Users::PostsController, type: :controller do
 
     end
 
-    context '' do
-      it '' do
+    context 'should list all the post for the user sent in the params' do
+      it 'response with success' do
         get(:index, params: params)
-        byebug
         json_response = JSON.parse(response.body)
+
         expect(response).to have_http_status(:success)
+        expect(json_response.count).to eq(10)
+        expect(json_response.first['id']).to eq(posts.first.id)
       end
     end
   end

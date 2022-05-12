@@ -1,7 +1,8 @@
-class Api::Users::PostsController < ApplicationController
+class Api::Users::PostsController < ApiApplicationController
+	include Response
 
-    def index
-        hello = "Hello World"
-        byebug
-    end
+	def index
+		@user = User.find(params[:user_id])
+		json_response(@user.posts)
+	end
 end

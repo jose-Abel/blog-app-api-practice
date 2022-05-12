@@ -49,6 +49,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'ffaker'
+  gem 'database_cleaner'
 end
 
 group :test do

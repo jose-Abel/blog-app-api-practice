@@ -2,28 +2,34 @@
 
 ## Built With
 
-- Ruby v2.7.0
-- Ruby on Rails v5.2.4
+- Ruby 2.7.0
+- Rails 6.0.3.4
 
 ## Getting Started
 
 To get a local copy up and running follow these simple example steps.
 
-### Prerequisites
-
-Ruby: 2.6.3
-Rails: 5.2.3
-Postgres: >=9.5
-
 ### Setup
 
-Instal gems with:
+If not using ruby version 2.7.0, please install with rvm
+
+```
+  rvm install ruby-2.7.0
+```
+
+After installing the ruby version, run the command to use that version of ruby
+
+```
+  rvm use ruby-2.7.0
+```
+
+Install gems with:
 
 ```
 bundle install
 ```
 
-Run
+Install node packages with yarn
 
 ```
 yarn install
@@ -36,15 +42,20 @@ Setup database with:
    rails db:migrate
 ```
 
-### Usage
+### Usage the Web App
 
-Start server with:
+To start the server and use it on the browser, run:
 
 ```
     rails server
 ```
 
 Open `http://localhost:3000/` in your browser.
+
+
+### Usage the API
+
+
 
 ### Run tests
 
