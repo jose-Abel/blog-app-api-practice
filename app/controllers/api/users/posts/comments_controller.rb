@@ -14,7 +14,7 @@ class Api::Users::Posts::CommentsController < ApiApplicationController
 		if @comment.save
 			json_response({ data: "Comment was saved successfully!" }, 201)
 		else
-			json_response("Sorry, something went wrong!")
+			json_response({ data: "Sorry, something went wrong!" })
 		end
 	end
 
