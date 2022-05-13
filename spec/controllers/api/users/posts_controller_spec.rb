@@ -1,12 +1,10 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 
 RSpec.describe Api::Users::PostsController, type: :controller do
   describe 'GET #index' do
     let!(:user) { create(:user) }
     let!(:articles) { create_list(:article, 10, user: user) }
-    
+
     let(:params) do
       {
         user_id: user.id

@@ -1,17 +1,17 @@
-# frozen_string_literal: true
+# rubocop:disable Metrics/BlockLength
 
 require 'rails_helper'
 
-RSpec.describe Api::Users::Posts::CommentsController, type: :controller do
+RSpec.describe Api::Users::Posts::CommentsController do
   describe 'GET #index' do
     let!(:user) { create(:user) }
     let!(:article) { create(:article, user: user) }
-		let!(:comments) { create_list(:comment, 10, user: user, post: article) }
-    
+    let!(:comments) { create_list(:comment, 10, user: user, post: article) }
+
     let(:params) do
       {
         user_id: user.id,
-				post_id: article.id
+        post_id: article.id
       }
     end
 
@@ -32,7 +32,7 @@ RSpec.describe Api::Users::Posts::CommentsController, type: :controller do
     let!(:user) { create(:user) }
     let!(:article) { create(:article, user: user) }
     let!(:another_user) { create(:user) }
-    
+
     let(:params) do
       {
         user_id: user.id,
@@ -50,9 +50,11 @@ RSpec.describe Api::Users::Posts::CommentsController, type: :controller do
 
         json_response = JSON.parse(response.body)
         expect(response.status).to eq(201)
-        expect(json_response['data']).to eq("Comment was saved successfully!")
+        expect(json_response['data']).to eq('Comment was saved successfully!')
         expect(Comment.last.user_id).to eq(another_user.id)
       end
     end
   end
 end
+
+# rubocop:enable Metrics/BlockLength

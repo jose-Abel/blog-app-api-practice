@@ -8,7 +8,7 @@ Rails.application.configure do
 
   # Do not eager load code on boot.
   config.eager_load = false
-  config.hosts << "ec2-34-229-44-141.compute-1.amazonaws.com"
+  config.hosts << 'ec2-34-229-44-141.compute-1.amazonaws.com'
   # Show full error reports.
   config.consider_all_requests_local = true
 
@@ -58,7 +58,7 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
- 
+
   # Devise auth config
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 end

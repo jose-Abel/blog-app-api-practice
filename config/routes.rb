@@ -2,19 +2,19 @@ Rails.application.routes.draw do
   root 'posts#index'
 
   devise_for :users
-  
-  get "friends_list", to: "friendships#friends_list"
 
-  get "pending_requests", to: "friendships#pending_requests"
+  get 'friends_list', to: 'friendships#friends_list'
 
-  get "friends_requests", to: "friendships#friends_requests"
+  get 'pending_requests', to: 'friendships#pending_requests'
+
+  get 'friends_requests', to: 'friendships#friends_requests'
 
   resources :friendships
 
-  resources :users, only: [:index, :show]
-  resources :posts, only: [:index, :create] do
+  resources :users, only: %i[index show]
+  resources :posts, only: %i[index create] do
     resources :comments, only: [:create]
-    resources :likes, only: [:create, :destroy]
+    resources :likes, only: %i[create destroy]
   end
 
   namespace :api do

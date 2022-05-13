@@ -23,9 +23,9 @@ RSpec.describe 'Authentication', type: :request do
       before { post '/api/auth/login', params: valid_credentials, headers: headers }
 
       it 'returns an authentication token' do
-				json_response = JSON.parse(response.body)
+        json_response = JSON.parse(response.body)
 
-				expect(json_response['auth_token']).not_to be_nil
+        expect(json_response['auth_token']).not_to be_nil
       end
     end
   end

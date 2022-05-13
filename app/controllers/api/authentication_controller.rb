@@ -1,5 +1,5 @@
 class Api::AuthenticationController < ApiApplicationController
-	include Response
+  include Response
 
   skip_before_action :authorize_request, only: :authenticate
 
