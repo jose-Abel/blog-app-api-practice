@@ -1,4 +1,4 @@
-class Api::Auth::AuthenticateUser
+class Auth::AuthenticateUser
   def initialize(email, password)
     @email = email
     @password = password

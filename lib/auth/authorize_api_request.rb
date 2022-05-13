@@ -1,4 +1,4 @@
-class Api::Auth::AuthorizeApiRequest < ApiApplicationController
+class Auth::AuthorizeApiRequest < ApiApplicationController
   include Message
 
   def initialize(headers = {})

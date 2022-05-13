@@ -1,10 +1,13 @@
 # blog-app-api-practice
 
-Blog app: add API endpoints project where, as the name indicates, I had to add API endpoints to the already created project in the Social Media website. The endpoints are for:
+Blog app: add API endpoints project where, as the name indicates, I had to add API endpoints to the already created project in the Social Media website. The endpoints created are for the following actions:
 
 - List all posts for a user.
 - List all comments for a user's post.
 - Add a comment to a post.
+- Implement authentication
+
+Since the original project, authentication was implemented with the devise gem. For the API project authentication was implemented with the jwt gem in a separate way, such that both the original project with the frontend in .erb views and also the API project with the particular endpoints requested lived together. All the API endpoints controller are located in it's respective API namespace folder inside the controller's directory.
 
 ## Built With
 

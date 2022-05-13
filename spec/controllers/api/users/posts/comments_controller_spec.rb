@@ -42,15 +42,14 @@ RSpec.describe Api::Users::Posts::CommentsController, type: :controller do
       }
     end
 
-    context 'should list all the comments for the user sent in the params' do
+    context 'should create a new comment with the content send in the params' do
       it 'response with success' do
         request.headers.merge({ 'Authorization' => token_generator(user.id) })
         post(:create, params: params)
 
         json_response = JSON.parse(response.body)
-        expect(response).to have_http_status(:success)
-        expect(json_response.count).to eq(1)
-        expect(json_response['content']).to eq(params[:comment][:content])
+        expect(response.status).to eq(201)
+        expect(json_response['data']).to eq("Comment was saved successfully!")
       end
     end
   end

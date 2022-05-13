@@ -1,5 +1,5 @@
 # app/lib/message.rb
-class Message
+module Message
   def self.not_found(record = 'record')
     "Sorry, #{record} not found."
   end
