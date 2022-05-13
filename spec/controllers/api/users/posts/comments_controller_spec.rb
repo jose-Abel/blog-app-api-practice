@@ -31,6 +31,7 @@ RSpec.describe Api::Users::Posts::CommentsController, type: :controller do
   describe 'POST #create' do
     let!(:user) { create(:user) }
     let!(:article) { create(:article, user: user) }
+    let!(:another_user) { create(:user) }
     
     let(:params) do
       {
@@ -44,12 +45,13 @@ RSpec.describe Api::Users::Posts::CommentsController, type: :controller do
 
     context 'should create a new comment with the content send in the params' do
       it 'response with success' do
-        request.headers.merge({ 'Authorization' => token_generator(user.id) })
+        request.headers.merge({ 'Authorization' => token_generator(another_user.id) })
         post(:create, params: params)
 
         json_response = JSON.parse(response.body)
         expect(response.status).to eq(201)
         expect(json_response['data']).to eq("Comment was saved successfully!")
+        expect(Comment.last.user_id).to eq(another_user.id)
       end
     end
   end
