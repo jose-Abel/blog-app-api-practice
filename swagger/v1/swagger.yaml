@@ -1,0 +1,88 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/users/{user_id}/posts/{post_id}/comments":
+    get:
+      summary: all comment
+      parameters:
+      - name: user_id
+        in: path
+        description: user_id
+        required: true
+        schema:
+          type: string
+      - name: post_id
+        in: path
+        description: post_id
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: Authorization
+        required: true
+        description: Client token
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: comment
+      parameters:
+      - name: user_id
+        in: path
+        description: user_id
+        required: true
+        schema:
+          type: string
+      - name: post_id
+        in: path
+        description: post_id
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: Authorization
+        required: true
+        description: Client token
+        schema:
+          type: string
+      responses:
+        '201':
+          description: successful
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                comment:
+                  content:
+                    type: string
+  "/api/users/{user_id}/posts":
+    get:
+      summary: list posts
+      parameters:
+      - name: user_id
+        in: path
+        description: user_id
+        required: true
+        schema:
+          type: string
+      - in: header
+        name: Authorization
+        required: true
+        description: Client token
+        schema:
+          type: string
+      responses:
+        '200':
+          description: successful
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com

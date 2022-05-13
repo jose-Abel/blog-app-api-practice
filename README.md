@@ -13,7 +13,7 @@ All the endpoints for the API project has it's respective tests with RSpec since
 
 ## Built With
 
-- Ruby 2.7.0
+- Ruby 2.7.6
 - Rails 6.0.3.4
 
 ## Getting Started
@@ -22,10 +22,10 @@ To get a local copy up and running follow these simple example steps.
 
 ### Setup
 
-If not using ruby version 2.7.0, please install with rvm
+If not using ruby version 2.7.6, please install with rvm
 
 ```
-  rvm install ruby-2.7.0
+  rvm install ruby-2.7.6
 ```
 
 After installing the ruby version, run the command to use that version of ruby
@@ -92,6 +92,15 @@ For adding a Comment on a particular Post for a User
   POST localhost:3000/api/users/:user_id/posts/:post_id/comments
 ```
 
+### Swagger tests
+
+To see the swagger documentation, once the app is running with rails s, go to the following URL:
+
+```
+  http://localhost:3000/api-docs/index.html
+```
+
+
 ### Run tests
 
 Download and install google chrome if don't have it to run Capybara.
@@ -109,8 +118,9 @@ Capybara needs the web drivers to run system tests with browsers
 
 To run the tests of just the API endpoints, run
 
+```
 rspec spec/controllers
-
+```
 
 ## Author
 
