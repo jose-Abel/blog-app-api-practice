@@ -7,6 +7,6 @@ class Api::Users::Posts::CommentsController < ApiApplicationController
 	end
 
 	def create
-		byebug
+
 	end
 end

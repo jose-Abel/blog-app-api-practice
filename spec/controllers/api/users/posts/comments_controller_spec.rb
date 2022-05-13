@@ -17,6 +17,7 @@ RSpec.describe Api::Users::Posts::CommentsController, type: :controller do
 
     context 'should list all the comments for the user sent in the params' do
       it 'response with success' do
+        request.headers.merge({ 'Authorization' => token_generator(user.id) })
         get(:index, params: params)
         json_response = JSON.parse(response.body)
 
@@ -30,7 +31,6 @@ RSpec.describe Api::Users::Posts::CommentsController, type: :controller do
   describe 'POST #create' do
     let!(:user) { create(:user) }
     let!(:article) { create(:article, user: user) }
-    # let!(:header) { { 'Authorization' => token_generator(user.id) } }
     
     let(:params) do
       {
@@ -42,15 +42,11 @@ RSpec.describe Api::Users::Posts::CommentsController, type: :controller do
       }
     end
 
-    # before do
-    #   sign_in(user)
-    # end
-
     context 'should list all the comments for the user sent in the params' do
       it 'response with success' do
         request.headers.merge({ 'Authorization' => token_generator(user.id) })
         post(:create, params: params)
-        byebug
+
         json_response = JSON.parse(response.body)
         expect(response).to have_http_status(:success)
         expect(json_response.count).to eq(1)

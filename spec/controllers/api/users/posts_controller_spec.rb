@@ -15,6 +15,7 @@ RSpec.describe Api::Users::PostsController, type: :controller do
 
     context 'should list all the post for the user sent in the params' do
       it 'response with success' do
+        request.headers.merge({ 'Authorization' => token_generator(user.id) })
         get(:index, params: params)
         json_response = JSON.parse(response.body)
 
