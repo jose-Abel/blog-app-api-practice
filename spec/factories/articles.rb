@@ -1,5 +1,5 @@
 FactoryBot.define do
-	factory :post, class: 'Post' do
+	factory :article, class: 'Post' do
 		content { FFaker::Lorem.word }
 		user { association(:user) }
 	end

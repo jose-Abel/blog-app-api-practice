@@ -18,9 +18,10 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
+    post 'auth/login', to: 'authentication#authenticate'
     resources :users, only: [] do
       resources :posts, only: %i[index], controller: 'users/posts' do
-        resources :comments, only: %i[index], controller: 'posts/comments'
+        resources :comments, only: %i[index create], controller: 'users/posts/comments'
       end
     end
   end

@@ -6,6 +6,7 @@ RSpec.describe 'Registration of a new user', type: :system do
 
     expect(page).to have_content 'You need to sign in or sign up before continuing.'
 
+    # sign_up = find(:css, "a[id$='sign_up']")
     click_link 'Sign up'
     sleep(2)
 

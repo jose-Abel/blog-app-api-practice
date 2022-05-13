@@ -1,5 +1,11 @@
 # blog-app-api-practice
 
+Blog app: add API endpoints project where, as the name indicates, I had to add API endpoints to the already created project in the Social Media website. The endpoints are for:
+
+- List all posts for a user.
+- List all comments for a user's post.
+- Add a comment to a post.
+
 ## Built With
 
 - Ruby 2.7.0
@@ -55,7 +61,31 @@ Open `http://localhost:3000/` in your browser.
 
 ### Usage the API
 
+You can test the API endpoints with an app that sends HTTP Requests such as Postman. Have the app running with
 
+```
+  rails s
+```
+
+The API endpoints are:
+
+For all the Posts of a particular User
+
+```
+GET localhost:3000/api/users/:user_id/posts
+```
+
+For all the Comments on a particular Post for a User
+
+```
+  GET localhost:3000/api/users/:user_id/posts/:post_id/comments
+```
+
+For adding a Comment on a particular Post for a User
+
+```
+  POST localhost:3000/api/users/:user_id/posts/:post_id/comments
+```
 
 ### Run tests
 
@@ -64,7 +94,6 @@ Capybara needs the web drivers to run system tests with browsers
 
 ``` 
   wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-  sudo apt install ./google-chrome-stable_current_amd64.deb
 	
 ```
 
@@ -73,23 +102,10 @@ Capybara needs the web drivers to run system tests with browsers
 
 ```
 
-### Deployment
+To run the tests of just the API endpoints, run
 
-Steps to deploy to Heroku run in the console the following commands:
+rspec spec/controllers
 
-```
-  heroku login -i
-
-  <login with your Heroku credentials>
-
-  heroku create
-
-  heroku rename <the name you want for your app>
-
-  heroku run rails db:migrate
-
-```
-After the previous steps, make sure you add your database password to your Heroku environment variables with the key-value pairs being the key locate in config/database.yml and the value the password you set up.
 
 ## Author
 

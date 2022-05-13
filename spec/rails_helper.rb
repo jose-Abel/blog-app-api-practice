@@ -7,6 +7,7 @@ abort('The Rails environment is running in production mode!') if Rails.env.produ
 require 'rspec/rails'
 require 'ffaker'
 require 'database_cleaner'
+require 'support/controller_spec_helper'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
@@ -36,6 +37,7 @@ end
 RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.include FactoryBot::Syntax::Methods
+  config.include ControllerSpecHelper
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, remove the following line or assign false
@@ -53,6 +55,10 @@ RSpec.configure do |config|
     DatabaseCleaner.cleaning do
       example.run
     end
+  end
+
+  config.expect_with :rspec do |c|
+    c.syntax = :expect
   end
 
   # You can uncomment this line to turn off ActiveRecord support entirely.
