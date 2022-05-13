@@ -1,14 +1,12 @@
 class ApiApplicationController < ActionController::API
-  include ActionController::RequestForgeryProtection
+  include Response
 
-  protect_from_forgery with: :exception, unless: -> { request.format.json? }
+  before_action :authorize_request
+  attr_reader :current_user
 
-  before_action :configure_permitted_parameters, if: :devise_controller?
-
-  protected
-
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :email, :password, :password_confirmation) }
-    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:name, :email, :password, :current_password) }
+  private
+  # Check for valid request token and return user
+  def authorize_request
+    @current_user = (Api::Auth::AuthorizeApiRequest.new(request.headers).call)[:user]
   end
 end

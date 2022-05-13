@@ -1,4 +1,4 @@
-class Api::Auth::Authorize < ApiApplicationController
+class Api::Auth::AuthorizeApiRequest < ApiApplicationController
   def initialize(headers = {})
     @headers = headers
   end

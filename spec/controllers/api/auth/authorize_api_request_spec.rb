@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Api::Auth::Authorize do
+RSpec.describe Api::Auth::AuthorizeApiRequest do
   # Create test user
   let(:user) { create(:user) }
   # Mock `Authorization` header

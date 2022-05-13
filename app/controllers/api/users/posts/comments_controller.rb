@@ -1,6 +1,5 @@
 class Api::Users::Posts::CommentsController < ApiApplicationController
 	include Response
-	include ExceptionHandler
 
 	def index
 		@post = Post.find(params[:post_id])
