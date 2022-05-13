@@ -1,5 +1,3 @@
-# rubocop:disable Metrics/BlockLength
-
 require 'rails_helper'
 
 RSpec.describe Api::Users::Posts::CommentsController do
@@ -56,5 +54,3 @@ RSpec.describe Api::Users::Posts::CommentsController do
     end
   end
 end
-
-# rubocop:enable Metrics/BlockLength
