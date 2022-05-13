@@ -1,4 +1,4 @@
-class AuthorizeApiRequest
+class Api::Auth::Authorize < ApiApplicationController
   def initialize(headers = {})
     @headers = headers
   end
@@ -21,10 +21,7 @@ class AuthorizeApiRequest
     # handle user not found
   rescue ActiveRecord::RecordNotFound => e
     # raise custom error
-    raise(
-      ExceptionHandler::InvalidToken,
-      ("#{Message.invalid_token} #{e.message}")
-    )
+    raise(("#{Message.invalid_token} #{e.message}"))
   end
 
   # decode authentication token
@@ -37,6 +34,5 @@ class AuthorizeApiRequest
     if headers['Authorization'].present?
       return headers['Authorization'].split(' ').last
     end
-      raise(ExceptionHandler::MissingToken, Message.missing_token)
   end
 end

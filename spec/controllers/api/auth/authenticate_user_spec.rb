@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe AuthenticateUser do
+RSpec.describe Api::Auth::AuthenticateUser do
   # create test user
   let(:user) { create(:user) }
   # valid request subject

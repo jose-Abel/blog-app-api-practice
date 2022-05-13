@@ -293,7 +293,7 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   puma (~> 3.12)
   rails (~> 6.0.3, >= 6.0.3.4)
-  rspec-rails
+  rspec-rails (~> 4.0)
   rubocop
   sass-rails (~> 5.0)
   selenium-webdriver
