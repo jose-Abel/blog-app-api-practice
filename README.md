@@ -9,6 +9,8 @@ Blog app: add API endpoints project where, as the name indicates, I had to add A
 
 Since the original project, authentication was implemented with the devise gem. For the API project authentication was implemented with the jwt gem in a separate way, such that both the original project with the frontend in .erb views and also the API project with the particular endpoints requested lived together. All the API endpoints controller are located in it's respective API namespace folder inside the controller's directory.
 
+All the endpoints for the API project has it's respective tests with RSpec since their development was following TDD.
+
 ## Built With
 
 - Ruby 2.7.0
